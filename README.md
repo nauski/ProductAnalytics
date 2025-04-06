@@ -1,4 +1,5 @@
 # T6.2
+# Link to calculations: https://github.com/nauski/ProductAnalytics/tree/main
 
 Course: Product Analytics
 Assignment: T6.2
