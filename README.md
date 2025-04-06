@@ -1,25 +1,148 @@
 # T6.2
 
-## Analyzing Uber driver payouts
+Course: Product Analytics
+Assignment: T6.2
+Analyzing how Uber driver payouts are affected by wait time and commuting hours
 
-```
-Task 1: Commute vs Non-Commute (Control Group)
-Mean (Commute): $39,524.42
-Mean (Non-Commute): $27,360.45
-t-statistic: 6.9313, p-value: 0.0000
-Interpretation: Significant difference
-```
-![Graph showing Significant difference](https://raw.githubusercontent.com/nauski/ProductAnalytics/refs/heads/main/task1_payouts.png)
+## 1.1. Do commuting hours experience a higher number of ridesharing (Express + POOL) trips compared to non-commuting hours?
+Mean commuting rides: 5046.00
+Mean non-commuting rides: 3763.40
+Answer: YES
 
-```
-Task 2: Treatment vs Control (Commute Only)
-Mean (Treatment - 5 min wait): $35,744.23
-Mean (Control - 2 min wait): $39,524.42
-t-statistic: -1.6806, p-value: 0.1105
-Interpretation: No significant difference
-```
+## 1.2. What is the difference in the number of ridesharing trips between commuting and non-commuting hours?
+Difference: 1282.60 trips
 
-![Graph showing No Significant difference](https://raw.githubusercontent.com/nauski/ProductAnalytics/refs/heads/main/task2_payouts.png)
+## 1.3. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 7.7715, p-value: 0.000010
+Statistically significant? YES
+
+## 1.4. Do riders use Express at higher rates during commuting hours compared to non-commuting hours?
+Mean Express share (commute): 0.6981
+Mean Express share (non-commute): 0.6480
+Answer: YES
+
+## 1.5. What is the difference in the share of Express trips between commuting and non-commuting hours?
+Difference: 0.0501 (or 5.01 percentage points)
+
+## 1.6. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 3.7599, p-value: 0.001620
+Statistically significant? YES
+
+## 1.7. Assume that riders pay $12.5 on average for a POOL ride, and $10 for an Express ride. What is the difference in revenues between commuting and non-commuting hours?
+Mean revenue (commute): $54256.25
+Mean revenue (non-commute): $40945.28
+Difference: $13310.97
+
+## 1.8. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 7.6565, p-value: 0.000010
+Statistically significant? YES
+
+## 1.9. What is the difference in profits per trip between commuting and non-commuting hours?
+Mean profit per trip (commute): $2.94
+Mean profit per trip (non-commute): $3.60
+Difference: $-0.66
+
+## 1.10. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -4.4526, p-value: 0.000346
+Statistically significant? YES
+
+# PROBLEM 2: Estimating the Effect of Extending Wait Times (Commuting Hours Only)
+
+## 2.1. What is the difference in the number of ridesharing trips between the treatment and control groups during commuting hours?
+Mean rides (treatment): 4724.10
+Mean rides (control): 5046.00
+Difference: -321.90
+
+## 2.2. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -1.4197, p-value: 0.172812
+Statistically significant? NO
+
+## 2.3. What is the difference in the number of rider cancellations between the treatment and control groups during commuting hours?
+Mean cancellations (treatment): 303.20
+Mean cancellations (control): 246.90
+Difference: 56.30
+
+## 2.4. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 3.1953, p-value: 0.006799
+Statistically significant? YES
+
+## 2.5. What is the difference in driver payout per trip between the treatment and control groups during commuting hours?
+Mean payout per trip (treatment): $7.57
+Mean payout per trip (control): $7.81
+Difference: $-0.24
+
+## 2.6. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -1.1067, p-value: 0.283821
+Statistically significant? NO
+
+## 2.7. What is the difference in overall match rate between the treatment and control groups during commuting hours?
+Mean matches (treatment): 3474.40
+Mean matches (control): 3789.30
+Difference: -314.90
+
+## 2.8. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -1.2147, p-value: 0.240178
+Statistically significant? NO
+
+## 2.9. What is the difference in double match rate between the treatment and control groups during commuting hours?
+Mean double matches (treatment): 1807.80
+Mean double matches (control): 1794.30
+Difference: 13.50
+
+## 2.10. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 0.0770, p-value: 0.939449
+Statistically significant? NO
+
+## 2.11. Does the analysis support extending waiting times to 5 minutes for commuting hours?
+Conclusion: No, the data provides clear evidence against extending waiting times.
+
+## 2.12. What is the difference in the number of ridesharing trips between the treatment and control groups during non-commuting hours?
+Mean rides (treatment): 3720.83
+Mean rides (control): 3763.40
+Difference: -42.57
+
+## 2.13. Is the difference statistically significant at the 5% confidence level? (Corrected)
+t-statistic: -0.5981, p-value: 0.551058
+Statistically significant? NO
+
+## 2.14. What is the difference in the number of rider cancellations between the treatment and control groups during non-commuting hours?
+Mean cancellations (treatment): 168.79
+Mean cancellations (control): 149.96
+Difference: 18.83
+
+## 2.15. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 4.2183, p-value: 0.000054
+Statistically significant? YES
+
+## 2.16. What is the difference in driver payout per trip between the treatment and control groups during non-commuting hours?
+Mean payout per trip (treatment): $6.88
+Mean payout per trip (control): $7.28
+Difference: $-0.40
+
+## 2.17. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -3.5404, p-value: 0.000599
+Statistically significant? YES
+
+## 2.18. What is the difference in overall match rate between the treatment and control groups during non-commuting hours?
+Mean matches (treatment): 2242.81
+Mean matches (control): 2415.08
+Difference: -172.26
+
+## 2.19. Is the difference statistically significant at the 5% confidence level?
+t-statistic: -2.8247, p-value: 0.005677
+Statistically significant? YES
+
+## 2.20. What is the difference in double match rate between the treatment and control groups during non-commuting hours?
+Mean double matches (treatment): 1272.81
+Mean double matches (control): 1191.47
+Difference: 81.34
+
+## 2.21. Is the difference statistically significant at the 5% confidence level?
+t-statistic: 1.6192, p-value: 0.108557
+Statistically significant? NO
+
+## 2.22. Does the analysis support extending waiting times to 5 minutes for non-commuting hours?
+Conclusion: No, the data provides clear evidence against extending waiting times.
 
 ## Testing to see whether any other variable changes statistically significantly
 
