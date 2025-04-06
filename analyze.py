@@ -2,10 +2,10 @@
 # Assignment: T6.2
 # Analyzing how Uber driver payouts are affected by wait time and commuting hours
 
-
 import pandas as pd
-from scipy.stats import ttest_ind
 import matplotlib.pyplot as plt
+from tabulate import tabulate
+from scipy.stats import ttest_ind
 
 excel_path = "./dataset.xlsx"
 df = pd.read_excel(excel_path, sheet_name='Switchbacks')
@@ -46,7 +46,7 @@ print(f"Mean (Control - 2 min wait): ${mean_control:,.2f}")
 print(f"t-statistic: {t_stat_2:.4f}, p-value: {p_value_2:.4f}")
 print("Interpretation:", "Significant difference" if p_value_2 < 0.05 else "No significant difference")
 
-# Graphs
+# First Graphs
 plt.figure(figsize=(8, 5))
 plt.bar(['Commute = TRUE', 'Commute = FALSE'], [mean_commuting, mean_non_commuting], color=['skyblue', 'orange'])
 plt.title('Task 1: Mean Driver Payouts (Control Group Only)')
@@ -63,3 +63,47 @@ plt.tight_layout()
 plt.savefig("task2_payouts.png")
 plt.show()
 
+
+# Seeing if any other variable has statistically significant diffenrece
+outcome_vars = [
+    'trips_pool',
+    'trips_express',
+    'rider_cancellations',
+    'total_matches',
+    'total_double_matches'
+]
+
+# Containers for results
+task1_results = []
+task2_results = []
+
+# Task 1: Control group only, commute vs non-commute
+control_group = df[df['treat'] == False]
+commuting = control_group[control_group['commute'] == True]
+non_commuting = control_group[control_group['commute'] == False]
+
+for var in outcome_vars:
+    t_stat, p_val = ttest_ind(commuting[var], non_commuting[var], equal_var=False)
+    mean_commute = commuting[var].mean()
+    mean_non_commute = non_commuting[var].mean()
+    task1_results.append((var, mean_commute, mean_non_commute, t_stat, p_val))
+
+# Task 2: Commute hours only, treatment vs control
+commute_only = df[df['commute'] == True]
+treatment_commute = commute_only[commute_only['treat'] == True]
+control_commute = commute_only[commute_only['treat'] == False]
+
+for var in outcome_vars:
+    t_stat, p_val = ttest_ind(treatment_commute[var], control_commute[var], equal_var=False)
+    mean_treat = treatment_commute[var].mean()
+    mean_control = control_commute[var].mean()
+    task2_results.append((var, mean_treat, mean_control, t_stat, p_val))
+
+task1_df = pd.DataFrame(task1_results, columns=["Variable", "Mean (Commute)", "Mean (Non-Commute)", "t-stat", "p-value"])
+task2_df = pd.DataFrame(task2_results, columns=["Variable", "Mean (Treatment)", "Mean (Control)", "t-stat", "p-value"])
+
+print("\nTask 1: Commute vs Non-Commute (Control Group)")
+print(tabulate(task1_df, headers='keys', tablefmt='pretty'))
+
+print("\nTask 2: Treatment vs Control (Commute Only)")
+print(tabulate(task2_df, headers='keys', tablefmt='pretty'))
