@@ -15,13 +15,12 @@
           venvDir = ".venv";
           packages = with pkgs; [ python311 ] ++
             (with pkgs.python311Packages; [
-              pip
               pandas
               scipy
               matplotlib
+              tabulate
               openpyxl
               venvShellHook
-              requests
             ]);
         };
       });
