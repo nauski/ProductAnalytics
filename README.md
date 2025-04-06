@@ -35,6 +35,7 @@ Interpretation: No significant difference
 | 4 | total_double_matches |     1794.3     | 1191.4716981132076 | 4.597151121012482 | 0.0008045099321990458  |
 +---+----------------------+----------------+--------------------+-------------------+------------------------+
 ```
+More trips and total_matches. Conclusion commuting hours are busier.
 
 ### Task 2: Treatment vs Control (Commute Only)
 ```
@@ -48,6 +49,8 @@ Interpretation: No significant difference
 | 4 | total_double_matches |      1807.8      |     1794.3     | 0.07703145762818356 |  0.9394486814363104  |
 +---+----------------------+------------------+----------------+---------------------+----------------------+
 ```
+More rider cancellations in treatment group(longer wait). Trips and matches stayed the ~same.
+Conclusion people commuting don't want to wait longer.
 
 
 
