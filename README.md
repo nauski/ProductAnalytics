@@ -2,7 +2,6 @@
 
 Course: Product Analytics
 Assignment: T6.2
-Analyzing how Uber driver payouts are affected by wait time and commuting hours
 
 # PROBLEM 1
 
