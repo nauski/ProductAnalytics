@@ -36,7 +36,7 @@
 - Missed buyers: 800
 - Correct buyers: 1697
 
-### ⚠️ Limitations
+### Limitations
 - Still a moderate number of false negatives (missed buyers)
 - Heavily reliant on one dominant feature (`guarantees_purchased_RCA`)
 - May be prone to overfitting if depth is not controlled
