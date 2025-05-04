@@ -30,8 +30,6 @@
    - Used **Logistic Regression** for interpretability and as a solid baseline classifier
    - Increased `max_iter` to 5000 to handle convergence issues
 
----
-
 ## 2. Model Performance & Limitations
 
 ### Metrics
@@ -53,21 +51,19 @@
 - **False Negatives** (Missed buyers): 887
 - **True Positives** (Bought, predicted correctly): 1610
 
-### ⚠️ Weaknesses / Limitations
+### Weaknesses / Limitations
 - **Low Recall**: Model misses ~1/3 of buyers.
 - **Solver convergence**: Needed high iterations; scaling may help further.
 - **No behavioral enrichment**: Didn’t use `Transactions` data.
 - **Model simplicity**: Logistic regression may miss complex nonlinear patterns.
 
----
-
 ## 3. Performance Metrics Considered
 
-| Metric     | Reason for Use                                          |
+| Metric     | Reason for Use                                           |
 |------------|----------------------------------------------------------|
 | Accuracy   | Basic correctness measure (can be misleading alone)      |
 | Precision  | Important to minimize false positives                    |
 | Recall     | Important to capture as many real buyers as possible     |
 | F1 Score   | Balanced trade-off between precision and recall          |
-| ROC AUC    | Robust measure across all probability thresholds          |
+| ROC AUC    | Robust measure across all probability thresholds         |
 
